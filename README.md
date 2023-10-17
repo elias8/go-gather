@@ -12,7 +12,7 @@ Go collections library mainly inspired by the Java collection framework.
 
 - [ ] [Collection](#collection)
     - [x] [List](#list)
-        - [ ] ArrayList
+        - [x] [ArrayList](#arraylist)
         - [x] [LinkedList](#linkedlist) - Doubly
     - [ ] Stack
     - [ ] Queue
@@ -75,6 +75,43 @@ type List[T any] interface {
 	IndexOf(element T) (int, bool)
 
 	LastIndexOf(element T) (int, bool)
+}
+
+```
+
+### ArrayList
+
+```mermaid
+graph LR
+    subgraph ArrayList
+        direction LR
+        A(Item) ~~~ B(Item) ~~~ C(Item) ~~~ D(Item) ~~~ E(Item)
+    end
+```
+
+An array list is a wrapper around a Go slice. It implements the [List](#list)
+interface.
+
+#### Usage
+
+```go
+package main
+
+import "github.com/elias8/go-gather/list"
+
+func main() {
+	al := list.NewArrayList[int]()
+	al.Add(1)                // [1]
+	al.Add(2)                // [1, 2]
+	al.Add(3)                // [1, 2, 3]
+	_ = al.Contains(2)       // true
+	_, _ = al.IndexOf(2)     // 1, true
+	_, _ = al.LastIndexOf(2) // 1, true
+	_, _ = al.Set(1, 4)      // [1, 4, 3], (returns 2, true)
+	_, _ = al.Get(1)         // 4, true
+	al.Clear()               // []
+	_ = al.IsEmpty()         // true
+	_ = al.Size()            // 0
 }
 
 ```
