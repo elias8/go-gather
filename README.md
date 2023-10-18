@@ -14,7 +14,7 @@ Go collections library mainly inspired by the Java collection framework.
     - [x] [List](#list)
         - [x] [ArrayList](#arraylist)
         - [x] [LinkedList](#linkedlist) - Doubly
-    - [ ] Stack
+    - [x] Stack
     - [ ] Queue
     - [ ] Set
         - [ ] HashSet
